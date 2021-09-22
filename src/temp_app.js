@@ -5,9 +5,8 @@ const express = require('express');
 const app = new express();
 
 const {accounts, users} = require('./data.js');
-
-const accountRoutes = require('./routes/accounts.js')
-const servicesRoutes = require('./routes/services.js')
+const {accountRoutes} = require('./routes/accounts.js');
+const {servicesRoutes} = require('./routes/services.js');
 
 
 app.set('views', path.join(__dirname, '/views'));
@@ -23,7 +22,5 @@ app.use('/services', servicesRoutes);
 
 app.get('/profile', (req, res) => res.render('profile', {user: users[0]}));
 
-app.listen(3000, () => {
-    console.log('PS Project Running on port 3000!')
-});
+app.listen(3000);
 
